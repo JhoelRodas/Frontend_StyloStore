@@ -23,7 +23,7 @@ const RoleModal = ({ getDatos }) => {
     const handleOk = async () => {
         try {
             // Envía la petición POST al backend para crear la nueva profesión
-            await axios.post('http://localhost:8080/auth/roles', {
+            await axios.post('https://backend-ecommerce-z9dp.onrender.com/auth/roles', {
                 nombre: roleName, // Envia el nombre de la profesión
             });
 

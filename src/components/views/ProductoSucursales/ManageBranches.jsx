@@ -19,7 +19,7 @@ const ManageBranches = () => {
   const fetchSucursales = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8080/auth/sucursales');
+      const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/sucursales');
       setSucursales(response.data);
     } catch (error) {
       message.error('Error al cargar las sucursales');

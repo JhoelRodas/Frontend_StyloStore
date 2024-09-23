@@ -12,7 +12,7 @@ const ModalBranches = ({ getDatos }) => {
 
   const handleOk = async () => {
     try {
-      await axios.post('http://localhost:8080/auth/sucursales', {
+      await axios.post('https://backend-ecommerce-z9dp.onrender.com/auth/sucursales', {
         nombre,
         direccion,
         telefono,

@@ -15,7 +15,7 @@ const FormRegister = () => {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:8080/auth/register', rest);
+            const response = await axios.post('https://backend-ecommerce-z9dp.onrender.com/auth/register', rest);
             console.log('Registro exitoso:', response.data);
             login();
             navigate('/home');
