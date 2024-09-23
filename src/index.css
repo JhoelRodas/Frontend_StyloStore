@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, cursive, Tahoma, sans-serif;
+}
+
+body {
+  color: black;
+  width: 100vw; 
+  overflow-x: hidden;
+  height: 100%;
+  background: rgb(228, 228, 228);
+  border-color: #3b3b3b;
+}
+
+.screen-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1120px;
+}
+
+.white-icon {
+  color: #FFFFFF;
+}
+
+.green-button {
+  background-color: #90CA4B;
+  color: #FFFFFF;
+  border-color: #446b14;
+}
+
+/* Estilo para el botón en su estado hover */
+.ant-btn:hover {
+  color: #000000;
+  border-color: #10421b !important; /* Color del borde al pasar el cursor */
+}
+
+/* Estilo para el botón en su estado activo */
+.ant-btn:active {
+  color: #000000;
+  border-color: #12411d !important; /* Color del borde al hacer clic */
+  background-color: #e4ac14;
+}
+
+.custom-button {
+  background-color: white;
+  border-color: #90CA4B; 
+  color: white;
+}
+
+.add-role-button {
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .screen-max-width {
+    max-width: 100%;
+    padding: 0 10px; 
+  }
+
+  .navbar {
+    font-size: 14px; 
+  }
+
+  .table {
+    font-size: 12px; 
+    overflow-x: auto; 
+  }
+
+  .button {
+    padding: 10px 15px; 
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .screen-max-width {
+    max-width: 90%; 
+    padding: 0 20px;
+  }
+
+  .navbar {
+    font-size: 16px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 12px 20px; 
+  }
+}
+
+@media (min-width: 1025px) {
+  .screen-max-width {
+    max-width: 1120px; 
+    padding: 0 30px;
+  }
+
+  .navbar {
+    font-size: 18px;
+  }
+
+  .table {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 14px 25px;
+  }
+}
