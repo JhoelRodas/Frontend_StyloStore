@@ -6,7 +6,7 @@ const assets = {
   eyeImg,
   auth,
 };
-
+//
 export default assets;
 
 // Exportación con nombre de la lista de navegación
