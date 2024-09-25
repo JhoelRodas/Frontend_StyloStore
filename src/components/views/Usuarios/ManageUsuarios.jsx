@@ -18,6 +18,8 @@ const ManageUsuarios = () => {
     setLoading(true);
     try {
       const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/users');
+      
+      //const response = await axios.get('http://localhost:8080/auth/users');
       setUsers(response.data);
     } catch (error) {
       message.error('Error al cargar los usuarios');

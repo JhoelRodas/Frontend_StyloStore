@@ -1,5 +1,5 @@
 {
-  "name": "oftalmologica",
+  "name": "stylostore",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,7 +22,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "stylostore": "file:"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

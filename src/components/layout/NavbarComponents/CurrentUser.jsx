@@ -1,4 +1,4 @@
-import {Popover, Button} from  'antd'
+/*import {Popover, Button} from  'antd'
 import CustomAvatar from './CustomAvatar'
 import {user} from '../../../utils/test'
 
@@ -23,4 +23,4 @@ const CurrentUser = () => {
   )
 }
 
-export default CurrentUser
+export default CurrentUser*/

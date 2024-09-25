@@ -1,53 +1,75 @@
-// import React from 'react';
-import { useAuth } from '../users/AuthContext';
-import { LoginOutlined, UserAddOutlined, ShoppingOutlined } from '@ant-design/icons'; // Agrega un icono de tienda
-import { Button } from 'antd';
-//import { navLists } from '../../utils'; // Cambia los elementos de navLists para que reflejen una tienda de ropa
-import CurrentUser from './NavbarComponents/CurrentUser';
-// No necesitamos más assets para el logo del ojo, lo removemos
+import { useAuth } from "../users/AuthContext";
+import { ShoppingOutlined } from "@ant-design/icons";
+import { Dropdown, Menu, Avatar } from "antd";
 
 const Navbar = () => {
-    const { isLoggedIn, logout } = useAuth();
-    
-    // Modifica la lista de navegación para una tienda de ropa
-    const updatedNavLists = ['Hombres', 'Mujeres', 'Accesorios', 'Ofertas', 'Novedades'];
+  const { isLoggedIn, logout } = useAuth();
 
-    return (
-        <header className="bg-white w-full py-3 sm:px-10 px-5 flex justify-between border-b border-gray-300 shadow-md rounded-2xl">
-            {/* Aquí puedes agregar un ícono relacionado con ropa o una marca, por ahora solo uso un ícono de tienda */}
-            <div className="flex items-center">
-                <ShoppingOutlined style={{ fontSize: '30px', cursor: 'pointer' }} />
-                <span className="ml-2 text-lg font-bold cursor-pointer">StyloStore</span> {/* Nombre de la tienda */}
+  // Modify the navigation list for a clothing store
+  const updatedNavLists = [
+    "Hombres",
+    "Mujeres",
+    "Accesorios",
+    "Ofertas",
+    "Novedades",
+  ];
+
+  // Dropdown menu for the user profile
+  const menu = (
+    <Menu>
+      <Menu.Item key="0">
+        <span className="block px-4 py-2 text-sm text-gray-700">Dashboard</span>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <span className="block px-4 py-2 text-sm text-gray-700">Settings</span>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <span className="block px-4 py-2 text-sm text-gray-700">Earnings</span>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="3" onClick={logout}>
+        <span className="block px-4 py-2 text-sm text-gray-700">
+          Cerrar sesión
+        </span>
+      </Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <header className="bg-white w-full py-3 sm:px-10 px-5 flex justify-between border-b border-gray-300 shadow-md rounded-2xl">
+      {/* Logo and Store Name */}
+      <div className="flex items-center">
+        <ShoppingOutlined style={{ fontSize: "30px", cursor: "pointer" }} />
+        <span className="ml-2 text-lg font-bold cursor-pointer">
+          StyloStore
+        </span>
+      </div>
+
+      {/* Centered Navigation Menu */}
+      <div className="flex flex-1 justify-center items-center max-sm:hidden">
+        {updatedNavLists.map((nav) => (
+          <div
+            key={nav}
+            className="px-1 text-sm cursor-pointer text-gray hover:text-black transition-all"
+          >
+            {nav}
+          </div>
+        ))}
+      </div>
+
+      {/* Authentication Buttons or User Dropdown */}
+      <div className="flex items-center space-x-4">
+        {isLoggedIn && (
+          <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
+            <div className="flex items-center space-x-2 cursor-pointer">
+              <Avatar src="/path-to-your-user-image.jpg" alt="User Photo" />
+              <span>Bonnie Green</span>
             </div>
-            {/* Menú de navegación */}
-            <div className="flex flex-1 justify-center items-center max-sm:hidden">
-                {updatedNavLists.map((nav) => (
-                    <div key={nav} className="px-1 text-sm cursor-pointer text-gray hover:text-black transition-all">
-                        {nav}
-                    </div>
-                ))}
-            </div>
-            {/* Botones de autenticación */}
-            <div className="flex items-baseline max-sm:justify-end max-sm:flex-1 space-x-4">
-                {!isLoggedIn && (
-                    <>
-                        <Button type="default" shape="round" href='/login'>
-                            <LoginOutlined />
-                        </Button>
-                        <Button type="primary" shape="round" href='/register'>
-                            <UserAddOutlined />
-                        </Button>
-                    </>
-                )}
-                {isLoggedIn && (
-                    <>
-                        <Button shape="round" onClick={logout}>Cerrar sesión</Button>
-                        <CurrentUser />
-                    </>
-                )}
-            </div>
-        </header>
-    );
+          </Dropdown>
+        )}
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;

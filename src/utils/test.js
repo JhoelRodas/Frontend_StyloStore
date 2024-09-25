@@ -1,4 +1,4 @@
-export const users = [
+/*export const users = [
     {
         firstName: "John",
         firstLastName: "Doe",
@@ -51,3 +51,4 @@ export const user = [
     }
 ];
 
+*/

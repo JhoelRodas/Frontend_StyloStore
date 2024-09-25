@@ -50,7 +50,7 @@ const ManageBranches = () => {
         telefono: editedData[sucursalId].telefono, 
         horaAtencion: editedData[sucursalId].hora_atencion 
       };
-      await axios.put(`http://localhost:8080/auth/sucursales/${sucursalId}`, sucursalToUpdate);
+      await axios.put(`https://backend-ecommerce-z9dp.onrender.com/${sucursalId}`, sucursalToUpdate);
       message.success('Sucursal actualizada exitosamente');
       fetchSucursales();
       setEditingSucursalId(null);
@@ -68,7 +68,7 @@ const ManageBranches = () => {
   // Eliminar sucursal
   const handleDeleteSucursal = useCallback(async (sucursalId) => {
     try {
-      await axios.delete(`http://localhost:8080/auth/sucursales/${sucursalId}`);
+      await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/sucursales/${sucursalId}`);
       message.success('Sucursal eliminada exitosamente');
       fetchSucursales();
       setEditingSucursalId(null);

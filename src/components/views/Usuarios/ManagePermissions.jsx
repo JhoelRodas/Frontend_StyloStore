@@ -18,6 +18,8 @@ const ManagePermissions = () => {
     const fetchRoles = async () => {
         try {
             const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
+           
+           // const response = await axios.get('http://localhost:8080/auth/roles');
             setRoles(response.data);
         } catch (error) {
             message.error('Error al cargar los Roles');
@@ -28,7 +30,8 @@ const ManagePermissions = () => {
     const fetchPermisos = async () => {
         try {
             const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/permisos');
-            setPermissions(response.data);
+           //const response = await axios.get('http://localhost:8080/auth/permisos');
+           setPermissions(response.data);
         } catch (error) {
             message.error('Error al cargar los permisos');
             console.error('Error al obtener datos:', error);
@@ -59,7 +62,8 @@ const ManagePermissions = () => {
         try {
             // Simulación de la actualización de los permisos
             await axios.put(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${selectedRoleId}/permisos`, updatedRolePermissions);
-            message.success('Permisos actualizados con éxito');
+          //await axios.put(`http://localhost:8080/auth/roles/${selectedRoleId}/permisos`, updatedRolePermissions);  
+          message.success('Permisos actualizados con éxito');
         } catch (error) {
             message.error('Error al guardar los permisos');
             console.error('Error al enviar datos:', error);

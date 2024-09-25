@@ -1,9 +1,9 @@
 import  { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
+import {  DownOutlined, RightOutlined, MenuOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../users/AuthContext';
-import CurrentUser from './NavbarComponents/CurrentUser';
+//import CurrentUser from './NavbarComponents/CurrentUser';
 import SidebarLinks from './SidebarLinks';
 
 const { Sider } = Layout;
@@ -34,15 +34,16 @@ const Sidebar = () => {
       <div className="flex flex-col justify-between h-full">
         <div>
           <div className="flex flex-col items-center justify-center space-y-2 mt-8">
-            <CurrentUser />
-            {sidebarOpen && <h2 className="text-gray-700">Administrador</h2>}
+           
+
+
           </div>
           <div
             className="w-8 h-8 rounded-full bg-gray-50 shadow-lg flex items-center justify-center cursor-pointer transform transition-transform duration-300 mt-3 ml-auto mr-5"
             onClick={toggleSidebar}
             style={{ transform: sidebarOpen ? 'rotate(0)' : 'rotate(180deg)' }}
           >
-            <LeftOutlined />
+           <MenuOutlined />
           </div>
         </div>
         <Menu

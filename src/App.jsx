@@ -11,13 +11,18 @@ const AppContent = () => {
 
   return (
     <div className="flex h-screen bg-white-100 transition-all duration-300">
-      {isLoggedIn && (
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      )}
-      <div className="flex-1 flex flex-col overflow-x-hidden">
-        <Navbar />
+      
+
+      <div className="flex pt-20">
+        {isLoggedIn && (
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        )}
+      </div>
+      <div className="flex-1 flex flex-col  overflow-x-hidden">
+        <Navbar className="fixed top-0 left-0 w-full z-10" />
         <MyRoutes />
       </div>
+    
     </div>
   );
 };

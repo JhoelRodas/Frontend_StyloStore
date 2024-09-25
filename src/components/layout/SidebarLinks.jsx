@@ -1,9 +1,9 @@
-import {AimOutlined, SettingOutlined, FileAddOutlined, TeamOutlined } from '@ant-design/icons';
+import { FundTwoTone , DollarTwoTone , TeamOutlined, ShopTwoTone, SettingTwoTone } from '@ant-design/icons';
 //, SolutionOutlined
 const SidebarLinks = () => [
   {
     label: "Usuarios",
-    icon: <AimOutlined />,
+    icon: < TeamOutlined />,
     subMenu: [
       {
         label: "Gestionar Roles",
@@ -14,7 +14,7 @@ const SidebarLinks = () => [
         to: "/admin/permissions",
       },
       {
-        label: "Administrar Usuarios",
+        label: "Gestionar Usuarios",
         to: "/admin/users", 
       },
       {
@@ -25,26 +25,30 @@ const SidebarLinks = () => [
   },
   {
     label: "Productos y Sucursales",
-    icon: <FileAddOutlined />,
+    icon: <ShopTwoTone />,
     subMenu: [
       {
-        label: "Registrar Categorias",
+        label: "Gestionar Categorias",
         to: "/admin/Categoria", 
       },
       {
-        label: "Registrar Productos",
+        label: "Gestionar Productos",
         to: "/admin/productos",
       },
       {
         label: "Registro de sucursales",
         to: "/admin/branches",
+      },
+      {
+        label: "Gestionar Stock",
+        to: "/admin/Stock",
       }
     ],
   },
 
   {
-    label: "Catalogo y E-commerce",
-    icon: <TeamOutlined />,
+    label: "Administrar Ventas",
+    icon: <DollarTwoTone />,
     subMenu: [
       {
         label: "Carrito de compras",
@@ -55,46 +59,33 @@ const SidebarLinks = () => [
         to: "/personnel/Register-pagos",
       },
       {
-        label: "Gestion de Pedidos",
-        to: "/personnel/Pedidos",
-      }
-    ],
-  },
-  {
-    label: "Pagos y Reservas",
-    icon: <TeamOutlined />,
-    subMenu: [
+        label: "Administrar Compras",
+        to: "/personnel/Compras",
+      },
       {
         label: "Reservas de productos",
         to: "/personnel/reservas",
       },
-      {
-        label: "Pagos Online",
-        to: "/personnel/pagos",
-      },
     ],
-  },{
-    label: "Reportes",
-    icon: <TeamOutlined />,
+  },
+  {
+    label: "Reportes e Interacciones",
+    icon: <FundTwoTone />,
     subMenu: [
       {
         label: "Reporte de ventas",
         to: "/admin/Report-ventas",
       },
       {
-        label: "Reporte de stock",
-        to: "/personnel/report-stock",
-      },
-      {
-        label: "Reportes de reservas y recogidas",
-        to: "/personnel/repor-stock",
+        label: "Gestion de comentarios sobre producots",
+        to: "/personnel/comentarios",
       }
     ],
   },
 
   {
     label: "Configuración",
-    icon: <SettingOutlined />,
+    icon: <SettingTwoTone />,
     subMenu: [
       {
         label: "Ajustes",
