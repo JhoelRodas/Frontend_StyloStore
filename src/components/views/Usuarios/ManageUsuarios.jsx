@@ -9,6 +9,8 @@ const ManageUsuarios = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   
+  //const backendUrl = 'http://localhost:8080';
+  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
   // Obtener datos
   useEffect(() => {
     fetchUsuario();
@@ -17,9 +19,10 @@ const ManageUsuarios = () => {
   const fetchUsuario = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/users');
-      
+      //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/users');
       //const response = await axios.get('http://localhost:8080/auth/users');
+
+      const response = await axios.get(`${backendUrl}/auth/users`);
       setUsers(response.data);
     } catch (error) {
       message.error('Error al cargar los usuarios');

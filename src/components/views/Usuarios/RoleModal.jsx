@@ -18,16 +18,17 @@ const RoleModal = ({ getDatos }) => {
     // };
 
 
-
+    //const backendUrl = 'http://localhost:8080';
+    const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
     
     const handleOk = async () => {
         try {
             // Envía la petición POST al backend para crear la nueva profesión
-            await axios.post('https://backend-ecommerce-z9dp.onrender.com/auth/roles', {
+            await axios.post(`${backendUrl}/auth/roles`, {
                 nombre: roleName, // Envia el nombre de la profesión
             });
 
-            messageApi.success('Rol guardada exitosamente');
+            messageApi.success('Rol guardado exitosamente');
             getDatos(); // Recargar los datos después de guardar
 
             setRoleName(''); // Limpiar el input

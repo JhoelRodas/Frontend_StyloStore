@@ -16,6 +16,9 @@ const ManageRoles = () => {
   const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(false);
 
+ // const backendUrl= 'http://localhost:8080';
+ const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+
   // Obtener datos
   useEffect(() => {
     fetchRoles();
@@ -24,8 +27,10 @@ const ManageRoles = () => {
   const fetchRoles = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
+      //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
       //const response = await axios.get('http://localhost:8080/auth/roles');
+
+      const response = await axios.get(`${backendUrl}/auth/roles`);
       setRoles(response.data);
     } catch (error) {
       message.error('Error al cargar los Roles');
@@ -48,8 +53,11 @@ const ManageRoles = () => {
   const handleSaveRole = useCallback(async(roleId) => {
     try {
       const roleToUpdate = { id: roleId, nombre: editedData[roleId].name }; // Datos del rol a actualizar
-      await axios.put(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
+      // await axios.put(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
       //await axios.put(`http://localhost:8080/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
+      
+      
+      await axios.put(`${backendUrl}/auth/roles/${roleId}`,roleToUpdate);
       message.success('Rol actualizado exitosamente');
       fetchRoles(); // Recargar los roles después de editar
       setEditingRoleId(null); // Resetear el estado de edición
@@ -68,8 +76,11 @@ const ManageRoles = () => {
     const handleDeleteRole = useCallback(async (roleId) => {
       try {
         const roleToUpdate = { id: roleId}; // Datos del rol a actualizar
-        await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
-       // await axios.delete(`http://localhost:8080/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
+        // await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
+        // await axios.delete(`http://localhost:8080/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
+       
+       
+        await axios.delete(`${backendUrl}/auth/roles/${roleId}`,roleToUpdate); 
         message.success('Rol eliminado exitosamente');
         fetchRoles(); // Recargar los roles después de editar
         setEditingRoleId(null); // Resetear el estado de edición

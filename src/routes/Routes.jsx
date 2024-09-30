@@ -10,6 +10,11 @@ import ManageRoles from '../components/views/Usuarios/ManageRoles';
 import ManagePermissions from '../components/views/Usuarios/ManagePermissions';
 import ManageUsuarios from '../components/views/Usuarios/ManageUsuarios';
 import ManageSucursales from '../components/views/ProductoSucursales/ManageBranches';
+import ManageProducts from '../components/views/ProductoSucursales/ManageProducts';
+import ManageCategories from '../components/views/ProductoSucursales/ManageCategories';
+import ManageStock from '../components/views/ProductoSucursales/ManageStock';
+import ManageReservations from '../components/views/AdministracionVentas/ManageReservations';
+
 //
 
 
@@ -39,6 +44,10 @@ const MyRoutes = () => {
                 <Route path="/admin/permissions" element={<ManagePermissions />} />
                 <Route path="/admin/users" element={<ManageUsuarios />} />
                 <Route path="/admin/branches" element={<ManageSucursales />} />
+                <Route path="/admin/productos" element={<ManageProducts />} />
+                <Route path="/admin/categoria" element={<ManageCategories />} />
+                <Route path="/admin/Stock" element={<ManageStock />} />
+                <Route path="/personnel/reservas" element={<ManageReservations  />} />
             </Route>
 
             {/* Ruta por defecto para redirigir a login si no coincide ninguna ruta */}

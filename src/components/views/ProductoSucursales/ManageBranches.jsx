@@ -11,6 +11,9 @@ const ManageBranches = () => {
   const [sucursales, setSucursales] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  //const backendUrl = 'http://localhost:8080';
+  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+
   // Obtener datos
   useEffect(() => {
     fetchSucursales();
@@ -19,7 +22,9 @@ const ManageBranches = () => {
   const fetchSucursales = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/sucursales');
+      //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/sucursales');
+      
+      const response = await axios.get(`${backendUrl}/auth/sucursales`);
       setSucursales(response.data);
     } catch (error) {
       message.error('Error al cargar las sucursales');
@@ -50,7 +55,9 @@ const ManageBranches = () => {
         telefono: editedData[sucursalId].telefono, 
         horaAtencion: editedData[sucursalId].hora_atencion 
       };
-      await axios.put(`https://backend-ecommerce-z9dp.onrender.com/${sucursalId}`, sucursalToUpdate);
+      // await axios.put(`https://backend-ecommerce-z9dp.onrender.com/${sucursalId}`, sucursalToUpdate);
+      await axios.put(`${backendUrl}/auth/sucursales/${sucursalId}`, sucursalToUpdate);
+
       message.success('Sucursal actualizada exitosamente');
       fetchSucursales();
       setEditingSucursalId(null);
@@ -68,7 +75,10 @@ const ManageBranches = () => {
   // Eliminar sucursal
   const handleDeleteSucursal = useCallback(async (sucursalId) => {
     try {
-      await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/sucursales/${sucursalId}`);
+      // await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/sucursales/${sucursalId}`);
+      
+      await axios.delete(`${backendUrl}/auth/sucursales/${sucursalId}`);
+
       message.success('Sucursal eliminada exitosamente');
       fetchSucursales();
       setEditingSucursalId(null);
