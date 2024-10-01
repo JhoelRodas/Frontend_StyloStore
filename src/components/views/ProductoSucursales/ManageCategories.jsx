@@ -11,8 +11,8 @@ const ManageCategories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
 
- // const backendUrl = 'http://localhost:8080';
- const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+ //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
   useEffect(() => {
     fetchCategories();
   }, []);

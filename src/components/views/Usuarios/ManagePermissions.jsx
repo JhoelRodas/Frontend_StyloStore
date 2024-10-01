@@ -11,8 +11,8 @@ const ManagePermissions = () => {
     const [roles, setRoles] = useState([]);
     const [permissions, setPermissions] = useState([]);
 
-   //const backendUrl = 'http://localhost:8080';
    const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+   //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
 
     useEffect(() => {
         fetchRoles();
@@ -23,7 +23,7 @@ const ManagePermissions = () => {
     const fetchRoles = async () => {
         try {
             // const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
-            //const response = await axios.get('http://localhost:8080/auth/roles');
+            //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
             
 
              const response = await axios.get(`${backendUrl}/auth/roles`); //Cargar los roles mas los permisos
@@ -37,7 +37,7 @@ const ManagePermissions = () => {
     const fetchPermisos = async () => {
         try {
            // const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/permisos');
-           //const response = await axios.get('http://localhost:8080/auth/permisos');
+           //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/permisos');
            
            const response = await axios.get(`${backendUrl}/auth/permisos`); //carga solo los permisos
            setPermissions(response.data);

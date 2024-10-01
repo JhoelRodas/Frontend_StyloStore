@@ -13,17 +13,29 @@ const FormLogin = () => {
 
   const onFinish = async (values) => {
     const { username, password } = values;
-
+  
+    // Verificar los datos que se enviarán al backend
+    const requestData = {
+      username: username,
+      password: password,
+      isWebAccess: "true", // Indica que el acceso es desde la web
+    };
+  
+    console.log("Request Data:", requestData); // Imprime el objeto en la consola
+  
     try {
-       // const response = await axios.post("http://localhost:8080/auth/login", {
-      const response = await axios.post("https://backend-ecommerce-z9dp.onrender.com/auth/login", {
-        username: username,
-        password: password,
-      });
-      const { token } = response.data;
-
+      const response = await axios.post("https://backend-ecommerce-z9dp.onrender.com/auth/login", requestData);
+  
+      const { token, username: user, role, permissions } = response.data;
+  
+      // Guardar el token y los datos del usuario en el localStorage
       localStorage.setItem("token", token);
-
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ username: user, role, permissions })
+      );
+  
+      // Ejecutar la función login del contexto
       login();
       message.success("Sesión iniciada correctamente");
       navigate("/home");
@@ -32,10 +44,10 @@ const FormLogin = () => {
         "Error al iniciar sesión:",
         error.response ? error.response.data : error.message
       );
-      message.error("Error al iniciar sesión. Verifica tus credenciales.");
+      message.error("Acceso denegado o credenciales incorrectas.");
     }
   };
-
+  
   return (
     <div className="login-container">
       {/* Imagen de fondo */}

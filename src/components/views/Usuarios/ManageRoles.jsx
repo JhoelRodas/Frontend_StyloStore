@@ -16,8 +16,8 @@ const ManageRoles = () => {
   const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(false);
 
- // const backendUrl= 'http://localhost:8080';
- const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  const backendUrl= 'https://backend-ecommerce-z9dp.onrender.com';
+ //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
 
   // Obtener datos
   useEffect(() => {
@@ -28,7 +28,7 @@ const ManageRoles = () => {
     setLoading(true);
     try {
       //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
-      //const response = await axios.get('http://localhost:8080/auth/roles');
+      //const response = await axios.get('https://backend-ecommerce-z9dp.onrender.com/auth/roles');
 
       const response = await axios.get(`${backendUrl}/auth/roles`);
       setRoles(response.data);
@@ -54,7 +54,7 @@ const ManageRoles = () => {
     try {
       const roleToUpdate = { id: roleId, nombre: editedData[roleId].name }; // Datos del rol a actualizar
       // await axios.put(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
-      //await axios.put(`http://localhost:8080/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
+      //await axios.put(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud PUT
       
       
       await axios.put(`${backendUrl}/auth/roles/${roleId}`,roleToUpdate);
@@ -77,7 +77,7 @@ const ManageRoles = () => {
       try {
         const roleToUpdate = { id: roleId}; // Datos del rol a actualizar
         // await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
-        // await axios.delete(`http://localhost:8080/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
+        // await axios.delete(`https://backend-ecommerce-z9dp.onrender.com/auth/roles/${roleId}`,roleToUpdate); // Solicitud delete
        
        
         await axios.delete(`${backendUrl}/auth/roles/${roleId}`,roleToUpdate); 

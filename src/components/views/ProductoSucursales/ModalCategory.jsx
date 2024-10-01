@@ -8,9 +8,9 @@ const ModalCategory = ({ getDatos }) => {
   const [descripcion, setDescripcion] = useState('');
   const [messageApi, contextHolder] = message.useMessage();
 
- // const backendUrl = 'http://localhost:8080';
  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
- 
+ //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+
   const handleOk = async () => {
     try {
       await axios.post(`${backendUrl}/auth/categorias`, {

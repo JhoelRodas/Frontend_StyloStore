@@ -11,8 +11,8 @@ const ManageBranches = () => {
   const [sucursales, setSucursales] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //const backendUrl = 'http://localhost:8080';
   const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+ // const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
 
   // Obtener datos
   useEffect(() => {

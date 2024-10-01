@@ -18,8 +18,8 @@ const ManageStock = () => {
   const [isNewStockModalOpen, setIsNewStockModalOpen] = useState(false);
   const [currentRecord, setCurrentRecord] = useState(null);
 
-  //const backendUrl = 'http://localhost:8080';
   const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
   useEffect(() => {
     fetchSucursales();
     fetchProductos();

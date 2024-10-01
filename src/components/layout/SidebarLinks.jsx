@@ -18,9 +18,13 @@ const SidebarLinks = () => [
         to: "/admin/users", 
       },
       {
-        label: "Bitacora",
-        to: "/admin/access-log", 
-      }
+        label: "Registrar Usuarios",
+        to: "/admin/register", 
+      },
+      // {
+      //   label: "Bitacora",
+      //   to: "/admin/access-log", 
+      // }
     ],
   },
   {
@@ -50,15 +54,15 @@ const SidebarLinks = () => [
     label: "Administrar Ventas",
     icon: <DollarTwoTone />,
     subMenu: [
-      {
-        label: "Carrito de compras",
-        to: "/personnel/Carrito",
-      },
-      {
-        label: "Procesos de Pagos",
-        to: "/personnel/Register-pagos",
-      },
-      {
+      // {
+      //   label: "Carrito de compras",
+      //   to: "/personnel/Carrito",
+      // },
+      // {
+      //   label: "Procesos de Pagos",
+      //   to: "/personnel/Register-pagos",
+      // },
+     {
         label: "Administrar Compras",
         to: "/personnel/Compras",
       },

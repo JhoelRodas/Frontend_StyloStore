@@ -1,25 +1,33 @@
-import  { createContext, useState, useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';  // Importa PropTypes
+import { createContext, useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
-// Proveedor del contexto
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('loggedIn') === 'true');
+  const [user, setUser] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const login = () => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
     setIsLoggedIn(true);
+    setUser(storedUser);
     localStorage.setItem('loggedIn', 'true');
   };
 
   const logout = () => {
     setIsLoggedIn(false);
+    setUser(null);
     localStorage.setItem('loggedIn', 'false');
     localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
   };
 
   useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
     const handleStorageChange = () => {
       setIsLoggedIn(localStorage.getItem('loggedIn') === 'true');
     };
@@ -32,16 +40,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, sidebarOpen, setSidebarOpen, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, sidebarOpen, setSidebarOpen, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Validación de las propiedades utilizando PropTypes
 AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired, // Se especifica que children es requerido
+  children: PropTypes.node.isRequired,
 };
 
-// useAuth->Hook que permite acceder al contexto de autenticación fácilmente desde cualquier componente.
 export const useAuth = () => useContext(AuthContext);

@@ -16,8 +16,8 @@ const ManageReservations = () => {
   const [selectedReservation, setSelectedReservation] = useState(null); // Reserva seleccionada para ver en la modal
   const [isModalVisible, setIsModalVisible] = useState(false); // Control de visibilidad de la modal
 
-  //const backendUrl = 'http://localhost:8080';
-    const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  //  const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
   // Obtener datos de reservas, usuarios y productos
   useEffect(() => {
     fetchReservations();

@@ -13,8 +13,8 @@ const ManageProducts = () => {
   const [categories, setCategories] = useState([]); // Estado para las categorías
   const [loading, setLoading] = useState(false);
 
-  //const backendUrl = 'http://localhost:8080';
   const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
+  //const backendUrl = 'https://backend-ecommerce-z9dp.onrender.com';
   // Obtener datos de productos y categorías
   useEffect(() => {
     fetchProducts();
